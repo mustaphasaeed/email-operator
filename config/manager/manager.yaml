@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-operator
+  namespace: email-operator-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: email-operator
+  template:
+    metadata:
+      labels:
+        app: email-operator
+    spec:
+      serviceAccountName: email-operator-controller-manager
+      containers:
+        - name: manager
+          image: BASE_IMAGE # Placeholder for the image
+          resources:
+            limits:
+              cpu: 0.8
+              memory: 256Mi

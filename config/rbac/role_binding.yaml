@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: email-operator
+  namespace: email-operator-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: email-operator
+subjects:
+  - kind: ServiceAccount
+    name: email-operator-controller-manager
+    namespace: email-operator-system

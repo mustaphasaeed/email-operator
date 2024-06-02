@@ -1,0 +1,20 @@
+apiVersion: emails.mailerlite.com/v1
+kind: EmailSenderConfig
+metadata:
+  name: mailer-send-config
+  namespace: email-operator-system
+spec:
+  apiTokenSecretRef: mailersend-api-token
+  senderEmail: sender@trial-z86org8oozn4ew13.mlsender.net
+---
+apiVersion: emails.mailerlite.com/v1
+kind: Email
+metadata:
+  name: my-email5
+  namespace: email-operator-system
+spec:
+  senderConfigRef: mailer-send-config
+  recipientEmail: mustapha.a.saeed@gmail.com
+  subject: Test Subject 3
+  body: Test Body 3
+

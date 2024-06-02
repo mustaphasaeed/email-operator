@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mailersend-api-token
+  namespace: email-operator-system
+type: Opaque
+data:
+  apiToken: bWxzbi4wOTY5NmYxOTE2MGUzN2Y0MjNmZDZmZjQwYjk4ODI0NjA4MzNjMjE3ZDQzMDM4M2Y1NGZmZWRiMTQzNDQxMGZj
