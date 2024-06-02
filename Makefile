@@ -1,6 +1,3 @@
-# Image URL to use all building/pushing image targets
-IMG ?= mustaphasaeed/email-operator:latest
-
 # Deploy controller in the configured Kubernetes cluster in ~/.kube/config
 .PHONY: deploy
 deploy:
@@ -8,6 +5,7 @@ deploy:
 	kubectl apply -f config/rbac
 	kubectl apply -f config/crd
 	sed 's|BASE_IMAGE|${IMG}|g' config/manager/manager.yaml | kubectl apply -f -
+	sed 's|BASE64_ENCODED_PLACEHOLDER|${MAIL_SEND_TOKEN}|g' config/secrets/mailersend.yaml | kubectl apply -f -
 
 # Build the docker image
 .PHONY: docker-build
